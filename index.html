@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dream Home Improvement | Premium Remodeling | NJ, NY & PA</title>
+<style>
+  :root{
+    --ink:#0F1620;
+    --ink-2:#172230;
+    --panel:#131C28;
+    --amber:#C89B3C;
+    --amber-soft:#DDBC6B;
+    --teal:#6B8F71;
+    --teal-soft:#93B598;
+    --line:rgba(255,255,255,0.10);
+    --line-soft:rgba(255,255,255,0.06);
+    --paper:#EDE7DA;
+    --paper-2:#F7F3EA;
+    --ink-text:#1B2A2F;
+    --serif:'Fraunces','Iowan Old Style','Georgia',serif;
+    --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --mono:'IBM Plex Mono','SFMono-Regular',Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--ink); color:var(--paper); font-family:var(--sans); font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1200px; margin:0 auto; padding:0 32px;}
+  .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:0.16em; text-transform:uppercase; display:flex; align-items:center; gap:10px; margin-bottom:18px; color:var(--amber-soft);}
+  .eyebrow::before{content:''; width:24px; height:1px; background:currentColor;}
+  h1,h2,h3{font-family:var(--serif); font-weight:600; margin:0; letter-spacing:-0.01em;}
+  h2{font-size:clamp(28px,4vw,46px); line-height:1.06;}
+  p{margin:0;}
+  .btn{display:inline-flex; align-items:center; gap:10px; padding:13px 24px; font-family:var(--mono); font-size:13.5px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; border:2px solid currentColor; cursor:pointer; transition:all .22s ease; white-space:nowrap;}
+  .btn-amber{background:var(--amber); color:var(--ink); border-color:var(--amber); box-shadow:0 6px 18px rgba(200,155,60,0.35);}
+  .btn-amber:hover{background:transparent; color:var(--amber-soft); border-color:var(--amber-soft); box-shadow:0 6px 20px rgba(200,155,60,0.15); transform:translateY(-2px);}
+  .btn-line{background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.55); color:var(--paper);}
+  .btn-line:hover{background:rgba(255,255,255,0.14); border-color:var(--paper); transform:translateY(-2px);}
+  .btn-dark{background:var(--ink); color:var(--paper); border-color:var(--ink); box-shadow:0 6px 18px rgba(0,0,0,0.3);}
+  .btn-dark:hover{background:transparent; color:var(--ink-text); box-shadow:none; transform:translateY(-2px);}
+
+  /* hex pattern helper */
+  .hexbg{
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(224,149,76,0.10), transparent 42%),
+      radial-gradient(circle at 85% 75%, rgba(46,139,122,0.14), transparent 45%),
+      repeating-linear-gradient(60deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 46px),
+      repeating-linear-gradient(-60deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 46px),
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.02) 0 1px, transparent 1px 46px);
+  }
+
+  /* NAV */
+  header{position:sticky; top:0; z-index:100; background:rgba(11,15,14,0.86); backdrop-filter:blur(12px); border-bottom:1px solid var(--line);}
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:18px 32px; max-width:1200px; margin:0 auto;}
+  .logo{display:flex; align-items:center; gap:12px;}
+  .logo-mark{width:40px; height:40px; border:1px solid var(--amber-soft); display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-size:18px; color:var(--amber-soft); transform:rotate(45deg);}
+  .logo-mark span{transform:rotate(-45deg); display:block;}
+  .logo-text{font-family:var(--serif); font-size:16px; line-height:1.15;}
+  .logo-text b{display:block;}
+  .logo-text small{font-family:var(--mono); font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; opacity:0.55; display:block;}
+  .logo-img-wrap{display:inline-flex; align-items:center;}
+  .logo-img-wrap img{height:38px; width:auto; display:block;}
+  @media (max-width:560px){ .logo-img-wrap img{height:30px;} }
+  .navlinks{display:flex; gap:34px; font-size:15px;}
+  .navlinks a{opacity:0.7; transition:opacity .15s;}
+  .navlinks a:hover{opacity:1; color:var(--amber-soft);}
+  .nav-phone{
+    display:inline-flex; align-items:center; padding:9px 20px;
+    background:transparent; color:var(--amber-soft); border:1px solid rgba(224,149,76,0.45); border-radius:999px;
+    font-family:var(--serif); font-size:14.5px; font-weight:500; letter-spacing:0.03em;
+    transition:all .25s ease;
+  }
+  .nav-phone:hover{background:rgba(224,149,76,0.10); border-color:var(--amber-soft); color:var(--paper);}
+  @media (max-width:560px){ .nav-phone{padding:9px 14px; font-size:13px;} }
+  @media (max-width:920px){ .navlinks{display:none;} }
+  .nav-burger{display:none; flex-direction:column; justify-content:center; align-items:center; gap:5px; width:40px; height:40px; background:none; border:1px solid var(--line); border-radius:8px; cursor:pointer; flex-shrink:0;}
+  .nav-burger span{display:block; width:18px; height:2px; background:var(--paper); transition:transform .25s ease, opacity .25s ease;}
+  .nav-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .nav-burger.open span:nth-child(2){opacity:0;}
+  .nav-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .mobile-menu{display:none; flex-direction:column; max-height:0; overflow:hidden; background:rgba(11,15,14,0.98); border-bottom:1px solid var(--line); transition:max-height .3s ease;}
+  .mobile-menu.open{max-height:420px;}
+  .mobile-menu a{padding:16px 32px; border-top:1px solid var(--line); font-size:15px; opacity:0.85;}
+  .mobile-menu a:first-child{border-top:none;}
+  .mobile-menu a.nav-phone{color:var(--amber-soft); font-family:var(--serif); font-size:16px;}
+  @media (max-width:920px){ .nav-burger{display:flex;} .mobile-menu{display:flex;} }
+  @media (max-width:560px){ .nav-phone-desktop{display:none;} }
+
+  /* HERO — dynamic mesh + hex */
+  .hero{position:relative; min-height:96vh; display:flex; flex-direction:column; justify-content:center; overflow:hidden; padding:100px 0 60px;
+    background:
+      linear-gradient(rgba(15,22,32,0.72), rgba(15,22,32,0.88)),
+      radial-gradient(1000px 640px at 8% -8%, rgba(200,155,60,0.20), transparent 58%),
+      radial-gradient(900px 700px at 102% 22%, rgba(107,143,113,0.20), transparent 55%),
+      url('images/hero-bg.jpg') center/cover no-repeat;
+  }
+  .hero::before{content:''; position:absolute; inset:0; opacity:0.6;
+    background-image: repeating-linear-gradient(60deg, rgba(255,255,255,0.028) 0 1px, transparent 1px 52px),
+                       repeating-linear-gradient(-60deg, rgba(255,255,255,0.028) 0 1px, transparent 1px 52px);
+    mask-image: radial-gradient(circle at 70% 40%, black, transparent 70%);
+  }
+  .blob{position:absolute; border-radius:50%; filter:blur(60px); opacity:0.55; animation:float 14s ease-in-out infinite;}
+  .blob1{width:380px; height:380px; background:var(--amber); top:-100px; right:8%; animation-delay:0s;}
+  .blob2{width:300px; height:300px; background:var(--teal); bottom:-80px; left:4%; animation-delay:3s;}
+  @keyframes float{0%,100%{transform:translateY(0) translateX(0);} 50%{transform:translateY(-24px) translateX(14px);}}
+  @media (prefers-reduced-motion: reduce){ .blob{animation:none;} }
+  .hero-inner{position:relative; z-index:2;}
+  .hero h1{font-size:clamp(48px,8vw,98px); line-height:0.96; max-width:1040px;}
+  .hero h1 em{font-style:normal; background:linear-gradient(90deg, var(--amber-soft), var(--teal-soft)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  .hero-sub{max-width:600px; margin-top:28px; font-size:19px; color:rgba(244,241,234,0.82);}
+  .hero-ctas{display:flex; gap:14px; margin-top:38px; flex-wrap:wrap;}
+  .finance-note{font-family:var(--mono); font-size:12px; letter-spacing:0.04em; color:var(--amber-soft); opacity:0.85; margin-top:18px;}
+  .hero-strip{display:flex; gap:0; margin-top:70px; border-top:1px solid var(--line); padding-top:22px; flex-wrap:wrap; row-gap:14px;}
+  .hero-strip .stat{flex:1; min-width:150px; padding-right:20px;}
+  .hero-strip .stat b{display:block; font-family:var(--serif); font-size:26px; margin-bottom:4px; color:var(--amber-soft);}
+  .hero-strip .stat span{font-family:var(--mono); font-size:11px; letter-spacing:0.08em; text-transform:uppercase; opacity:0.6;}
+
+  /* PATHS */
+  .split{padding:110px 0; background:var(--paper); color:var(--ink-text);}
+  .split-head{max-width:680px; margin-bottom:56px;}
+  .split-head p{margin-top:16px; opacity:0.72; font-size:16px;}
+  .split-head .eyebrow{color:var(--teal);}
+  .split-grid{display:grid; grid-template-columns:1.15fr 1fr; gap:2px; background:rgba(18,33,29,0.1);}
+  @media (max-width:860px){ .split-grid{grid-template-columns:1fr;} }
+  .path-card{background:var(--paper-2); padding:0 0 44px; transition:transform .3s ease; position:relative; overflow:hidden;}
+  .path-card:hover{transform:translateY(-4px);}
+  .path-card .photo{width:100%; height:220px; object-fit:cover; display:block; transition:transform .5s ease;}
+  .path-card:hover .photo{transform:scale(1.06);}
+  .path-body{padding:36px 44px 0;}
+  .path-card.dark{background:var(--ink); color:var(--paper);}
+  .path-tag{font-family:var(--mono); font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--amber);}
+  .path-card.dark .path-tag{color:var(--teal-soft);}
+  .path-card h3{font-size:32px; margin:14px 0 16px;}
+  .path-card p.desc{opacity:0.75; font-size:15px; max-width:420px; margin-bottom:26px;}
+  .path-list{list-style:none; margin:0 0 32px; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:10px 20px;}
+  .path-list li{font-size:14px; padding-left:16px; position:relative; opacity:0.82;}
+  .path-list li::before{content:'—'; position:absolute; left:0; opacity:0.5; font-size:12px;}
+
+  /* SERVICES */
+  .services{padding:110px 0; background:var(--ink-2);}
+  .svc-head{display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin-bottom:48px; flex-wrap:wrap;}
+  .svc-head p{max-width:420px; opacity:0.68; font-size:15px;}
+  .svc-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line);}
+  @media (max-width:820px){ .svc-grid{grid-template-columns:1fr;} }
+  .svc-card{background:var(--ink-2); min-height:170px; transition:background .25s ease; overflow:hidden;}
+  .svc-card:hover{background:#1B2938;}
+  .svc-card .thumb{width:100%; height:150px; object-fit:cover; display:block; transition:transform .5s ease;}
+  .svc-card:hover .thumb{transform:scale(1.07);}
+  .svc-card .svc-body{padding:26px 26px 30px;}
+  .svc-num{font-family:var(--mono); font-size:11px; opacity:0.45; margin-bottom:14px; display:block; color:var(--teal-soft);}
+  .svc-card h4{font-family:var(--serif); font-size:22px; margin-bottom:10px; font-weight:600;}
+  .svc-card p{font-size:15.5px; opacity:0.68; line-height:1.5;}
+
+  /* GALLERY */
+  .gallery{padding:100px 0; background:var(--paper); color:var(--ink-text);}
+
+  /* VIDEO SECTION */
+  .video-section{padding:110px 0; background:var(--ink); position:relative; overflow:hidden;}
+  .video-section::before{content:''; position:absolute; inset:0;
+    background: radial-gradient(800px 500px at 90% 10%, rgba(200,155,60,0.14), transparent 60%),
+                radial-gradient(700px 500px at 5% 90%, rgba(107,143,113,0.16), transparent 60%);
+  }
+  .video-section .wrap{position:relative; z-index:1;}
+  .video-section .eyebrow{color:var(--amber-soft);}
+  .video-section h2{margin-bottom:14px; max-width:600px;}
+  .video-section p.lead{opacity:0.68; max-width:520px; margin-bottom:56px;}
+  .video-grid{display:grid; grid-template-columns:1fr 1fr; gap:36px;}
+  @media (max-width:720px){ .video-grid{grid-template-columns:1fr; max-width:420px; margin:0 auto;} }
+  .video-card{position:relative; overflow:hidden; border:1px solid var(--line); background:#000; aspect-ratio:9/16; max-height:560px; margin:0 auto; width:100%;}
+  .video-card video{width:100%; height:100%; object-fit:cover; display:block;}
+  .video-card .vcap{
+    position:absolute; left:0; right:0; bottom:0; padding:20px 20px 18px;
+    background:linear-gradient(transparent, rgba(0,0,0,0.75));
+    font-family:var(--mono); font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--paper);
+    z-index:2; pointer-events:none;
+  }
+  .play-overlay{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    cursor:pointer; z-index:3; transition:background .25s ease;
+    background:rgba(11,15,14,0.15);
+  }
+  .play-overlay:hover{background:rgba(11,15,14,0.05);}
+  .play-overlay .play-btn{
+    width:64px; height:64px; border-radius:50%; background:rgba(244,241,234,0.92);
+    display:flex; align-items:center; justify-content:center; transition:transform .25s ease;
+    box-shadow:0 8px 24px rgba(0,0,0,0.4);
+  }
+  .play-overlay:hover .play-btn{transform:scale(1.08);}
+  .play-overlay .play-btn svg{margin-left:4px;}
+  .video-card.playing .play-overlay{display:none;}
+  .gallery .eyebrow{color:var(--teal);}
+  .gallery h2{max-width:600px; margin-bottom:48px;}
+  .gal-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+  @media (max-width:820px){ .gal-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:560px){ .gal-grid{grid-template-columns:1fr;} }
+  .gal-item{position:relative; overflow:hidden; aspect-ratio:4/3;}
+  .gal-item img{width:100%; height:100%; object-fit:cover; transition:transform .5s ease;}
+  .gal-item:hover img{transform:scale(1.06);}
+  .gal-item .cap{position:absolute; left:0; right:0; bottom:0; padding:16px 18px; background:linear-gradient(transparent, rgba(15,22,32,0.82)); color:#fff; font-family:var(--serif); font-size:16px;}
+
+  /* CREDS */
+  .creds{padding:110px 0; background:var(--ink); position:relative;}
+  .creds h2{max-width:660px; margin-bottom:56px;}
+  .creds-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line);}
+  @media (max-width:900px){ .creds-grid{grid-template-columns:repeat(2,1fr);} }
+  .cred-card{background:var(--ink); padding:30px 26px; transition:background .25s ease;}
+  .cred-card:hover{background:var(--panel);}
+  .cred-card .ico{width:34px; height:34px; border:1px solid var(--teal-soft); margin-bottom:20px; display:flex; align-items:center; justify-content:center; color:var(--teal-soft); font-family:var(--serif); transform:rotate(45deg);}
+  .cred-card .ico span{transform:rotate(-45deg); display:block;}
+  .cred-card h4{font-family:var(--serif); font-size:17px; margin-bottom:10px; font-weight:600;}
+  .cred-card p{font-size:13.5px; opacity:0.62;}
+  .badges{display:flex; gap:26px; flex-wrap:wrap; align-items:center; justify-content:center;}
+  .badge{font-family:var(--mono); font-size:13px; letter-spacing:0.05em; border:1px solid var(--line); padding:14px 24px; text-transform:uppercase; opacity:0.8;}
+  .badge-financing{border-color:var(--amber-soft); color:var(--amber-soft); opacity:1;}
+  .creds-trust{margin-top:56px; padding:44px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); display:flex; align-items:center; justify-content:center; gap:40px; flex-wrap:wrap;}
+  .cert-logos{display:flex; align-items:center; gap:38px; flex-wrap:wrap; justify-content:center;}
+  .cert-logos img{width:88px; height:88px; object-fit:contain; border-radius:50%; background:#fff; padding:8px; box-shadow:0 6px 18px rgba(0,0,0,0.3); flex-shrink:0;}
+  .award-wrap{flex-shrink:0; display:flex; align-items:center; gap:14px; padding-left:38px; border-left:1px solid var(--line);}
+  .award-wrap img{height:104px; width:auto; object-fit:contain; display:block; border-radius:4px; background:#fff; padding:6px; border:1px solid var(--line); box-shadow:0 6px 18px rgba(0,0,0,0.3);}
+  .creds-bottom{margin-top:32px; display:flex; justify-content:center;}
+  @media (max-width:700px){ .creds-trust{justify-content:center; text-align:center;} .award-wrap{border-left:none; padding-left:0; border-top:1px solid var(--line); padding-top:20px; width:100%; justify-content:center;} }
+  @media (max-width:480px){ .cert-logos img{width:68px; height:68px;} .award-wrap img{height:84px;} .trust-label{font-size:10.5px; max-width:110px;} .badge{font-size:12px; padding:12px 18px;} }
+  .trust-item{display:flex; flex-direction:column; align-items:center; gap:8px;}
+  .trust-item button{background:none; border:none; padding:0; margin:0; cursor:pointer; display:block;}
+  .trust-item button:focus-visible{outline:2px solid var(--amber-soft); outline-offset:3px; border-radius:50%;}
+  .trust-item button img{transition:transform .25s ease, box-shadow .25s ease;}
+  .trust-item button:hover img{transform:scale(1.06); box-shadow:0 10px 26px rgba(0,0,0,0.45);}
+  .trust-label{font-family:var(--mono); font-size:12px; letter-spacing:0.04em; text-transform:uppercase; opacity:0.65; text-align:center; max-width:140px; line-height:1.4;}
+  .lightbox-overlay{position:fixed; inset:0; background:rgba(5,9,14,0.88); display:none; align-items:center; justify-content:center; z-index:999; padding:30px; backdrop-filter:blur(3px);}
+  .lightbox-overlay.open{display:flex;}
+  .lightbox-box{max-width:min(90vw,480px); display:flex; flex-direction:column; align-items:center; gap:18px;}
+  .lightbox-box img{max-width:100%; max-height:70vh; object-fit:contain; background:#fff; border-radius:8px; padding:14px; box-shadow:0 24px 60px rgba(0,0,0,0.55);}
+  .lightbox-caption{font-family:var(--mono); font-size:13px; letter-spacing:0.04em; text-align:center; opacity:0.85;}
+  .lightbox-close{position:absolute; top:22px; right:26px; background:none; border:1px solid var(--line); color:#fff; width:40px; height:40px; border-radius:50%; font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background .2s ease;}
+  .lightbox-close:hover{background:rgba(255,255,255,0.1);}
+
+  /* PROCESS */
+  .process{padding:110px 0; background:var(--paper); color:var(--ink-text);}
+  .process h2{max-width:620px; margin-bottom:60px;}
+  .process .eyebrow{color:var(--teal);}
+  .timeline{position:relative; display:grid; grid-template-columns:repeat(5,1fr); gap:24px;}
+  @media (max-width:920px){ .timeline{grid-template-columns:1fr 1fr;} }
+  @media (max-width:560px){ .timeline{grid-template-columns:1fr;} }
+  .timeline::before{content:''; position:absolute; top:11px; left:0; right:0; height:2px; background:linear-gradient(90deg, var(--amber) 0%, var(--teal) 100%); z-index:0;}
+  @media (max-width:920px){ .timeline::before{display:none;} }
+  .tl-step{position:relative; z-index:1;}
+  .tl-dot{width:22px; height:22px; border-radius:50%; background:var(--paper-2); border:2px solid var(--amber); margin-bottom:22px;}
+  .tl-step:nth-child(3) .tl-dot, .tl-step:nth-child(4) .tl-dot, .tl-step:nth-child(5) .tl-dot{border-color:var(--teal);}
+  .tl-step h4{font-family:var(--serif); font-size:16px; margin-bottom:8px; font-weight:600;}
+  .tl-step p{font-size:13px; opacity:0.68; line-height:1.55;}
+
+  /* REVIEWS */
+  .reviews{padding:110px 0; background:var(--ink-2);}
+  .stars{color:var(--amber-soft); font-size:14px; letter-spacing:2px; margin-bottom:16px;}
+  .rev-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); margin-top:52px;}
+  @media (max-width:920px){ .rev-grid{grid-template-columns:1fr;} }
+  .rev-card{background:var(--ink-2); padding:32px 28px;}
+  .rev-card p.quote{font-size:14.5px; line-height:1.65; opacity:0.82; margin-bottom:22px;}
+  .rev-card .who{font-family:var(--mono); font-size:12px; letter-spacing:0.05em; opacity:0.55; border-top:1px solid var(--line); padding-top:14px;}
+
+  /* SERVICE AREA — hex panel like dracllc */
+  .area{padding:90px 0; background:var(--ink);}
+  .area-panel{border:1px solid var(--line); padding:46px 40px; position:relative; overflow:hidden;}
+  .region-row{display:flex; border-top:1px solid var(--line); margin-top:34px; padding-top:28px; flex-wrap:wrap;}
+  .region{flex:1; min-width:160px; text-align:center; font-family:var(--serif); font-size:22px;}
+  .region span{display:block; font-family:var(--mono); font-size:10px; opacity:0.5; margin-bottom:10px; letter-spacing:0.12em;}
+  .primary-loc{margin-top:26px; text-align:center; font-family:var(--mono); font-size:12px; letter-spacing:0.08em; opacity:0.7; display:flex; align-items:center; justify-content:center; gap:8px;}
+
+  /* CONTACT — redesigned */
+  .contact{padding:120px 0; background:var(--ink); color:var(--paper); position:relative; overflow:hidden;}
+  .contact::before{content:''; position:absolute; inset:0; opacity:0.5;
+    background-image: radial-gradient(700px 500px at 90% 10%, rgba(200,155,60,0.14), transparent 60%),
+                       radial-gradient(600px 500px at 5% 90%, rgba(107,143,113,0.16), transparent 60%);
+  }
+  .contact-inner{position:relative; z-index:1;}
+  .contact-top{max-width:640px; margin-bottom:56px;}
+  .contact .eyebrow{color:var(--amber-soft);}
+  .contact h2{margin-bottom:18px; color:var(--paper);}
+  .contact-lead{font-size:16.5px; opacity:0.72;}
+
+  .contact-grid{display:grid; grid-template-columns:0.95fr 1.05fr; gap:0; border:1px solid var(--line); background:var(--panel);}
+  @media (max-width:900px){ .contact-grid{grid-template-columns:1fr;} }
+
+  .info-col{padding:44px 40px; border-right:1px solid var(--line); display:flex; flex-direction:column; gap:36px;}
+  .info-bottom{margin-top:auto; padding-top:28px; border-top:1px solid var(--line); display:flex; align-items:center; gap:10px; flex-wrap:wrap;}
+  .info-bottom .ib-chip{font-family:var(--mono); font-size:11px; letter-spacing:0.06em; text-transform:uppercase; padding:8px 14px; border:1px solid var(--line); opacity:0.75;}
+  @media (max-width:900px){ .info-col{border-right:none; border-bottom:1px solid var(--line);} }
+
+  .emergency-callout{
+    display:flex; align-items:center; gap:16px; padding:20px 22px;
+    background:rgba(200,155,60,0.10); border:1px solid rgba(200,155,60,0.35);
+  }
+  .emergency-callout .ec-ico{width:40px; height:40px; flex-shrink:0; border-radius:50%; background:var(--amber); color:var(--ink); display:flex; align-items:center; justify-content:center; font-size:18px;}
+  .emergency-callout .ec-label{font-family:var(--mono); font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase; opacity:0.65; margin-bottom:4px;}
+  .emergency-callout .ec-phone{font-family:var(--serif); font-size:22px; color:var(--amber-soft);}
+
+  .info-list{display:flex; flex-direction:column; gap:26px;}
+  .info-row{display:flex; gap:16px; align-items:flex-start;}
+  .info-row .ir-ico{width:34px; height:34px; flex-shrink:0; border:1px solid var(--line); display:flex; align-items:center; justify-content:center; color:var(--teal-soft); font-size:15px;}
+  .info-row .ir-lbl{font-family:var(--mono); font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase; opacity:0.5; margin-bottom:4px;}
+  .info-row .ir-val{font-size:15px; opacity:0.92; line-height:1.5;}
+
+  .form-col{padding:44px 40px;}
+  .form-col .eyebrow{color:var(--teal-soft); margin-bottom:22px;}
+  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  @media (max-width:520px){ .form-row{grid-template-columns:1fr;} }
+  .contact-card{border:1px solid rgba(18,33,29,0.14); padding:26px 24px; margin-bottom:14px;}
+  .contact-card .lbl{font-family:var(--mono); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; opacity:0.5; margin-bottom:8px;}
+  .contact-card .val{font-family:var(--serif); font-size:18px;}
+  .form input,.form textarea,.form select{width:100%; background:transparent; border:none; border-bottom:1px solid var(--line); padding:12px 0; font-family:var(--sans); font-size:15px; color:var(--paper); margin-bottom:0; outline:none;}
+  .form input::placeholder, .form textarea::placeholder{color:rgba(244,241,234,0.35);}
+  .form input:focus,.form textarea:focus,.form select:focus{border-color:var(--amber-soft);}
+  .form label{font-family:var(--mono); font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; opacity:0.55; display:block; margin-bottom:6px;}
+  .form-field{margin-bottom:22px;}
+  .form-note{font-size:12.5px; opacity:0.5; margin-top:14px;}
+
+  /* FANCY PICKER (replaces native select) */
+  .picker-field{
+    width:100%; display:flex; align-items:center; justify-content:space-between; gap:12px;
+    background:transparent; border:none; border-bottom:1px solid var(--line);
+    padding:12px 0; margin-bottom:0; cursor:pointer; text-align:left; font-family:var(--sans);
+  }
+  .picker-field .pf-value{font-size:15px; color:var(--paper);}
+  .picker-field .pf-value.placeholder{opacity:0.4;}
+  .picker-field .pf-chevron{width:18px; height:18px; border:1px solid var(--line); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:11px; opacity:0.7; flex-shrink:0; transition:transform .25s ease; color:var(--paper);}
+  .picker-field.open .pf-chevron{transform:rotate(180deg);}
+  .picker-field:hover{border-color:var(--amber-soft);}
+
+  .picker-overlay{
+    position:fixed; inset:0; z-index:1000; background:rgba(15,22,32,0.72); backdrop-filter:blur(4px);
+    display:none; align-items:center; justify-content:center; padding:24px;
+  }
+  .picker-overlay.show{display:flex;}
+  .picker-modal{
+    background:var(--paper-2); color:var(--ink-text); width:100%; max-width:520px; padding:38px 36px 32px;
+    box-shadow:0 30px 80px rgba(0,0,0,0.4); position:relative; animation:popIn .25s ease;
+  }
+  @keyframes popIn{from{opacity:0; transform:translateY(14px) scale(0.98);} to{opacity:1; transform:translateY(0) scale(1);}}
+  .picker-modal .pm-close{position:absolute; top:20px; right:20px; width:30px; height:30px; border:1px solid rgba(18,33,29,0.2); display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:15px; background:transparent; color:var(--ink-text);}
+  .picker-modal .pm-close:hover{background:var(--ink-text); color:var(--paper-2); border-color:var(--ink-text);}
+  .picker-modal .pm-eyebrow{font-family:var(--mono); font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--teal); margin-bottom:14px;}
+  .picker-modal h3{font-family:var(--serif); font-size:26px; margin-bottom:8px; line-height:1.15;}
+  .picker-modal .pm-sub{font-size:14px; opacity:0.65; margin-bottom:26px;}
+  .pm-options{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+  @media (max-width:480px){ .pm-options{grid-template-columns:1fr;} }
+  .pm-opt{
+    border:1px solid rgba(18,33,29,0.18); padding:18px 16px; cursor:pointer; background:var(--paper);
+    transition:all .18s ease; display:flex; align-items:center; justify-content:space-between; gap:10px;
+  }
+  .pm-opt:hover{border-color:var(--amber); background:#fff;}
+  .pm-opt.selected{border-color:var(--ink-text); background:var(--ink-text); color:var(--paper-2);}
+  .pm-opt .pm-opt-label{font-size:14.5px; font-weight:500;}
+  .pm-opt .pm-check{width:16px; height:16px; border:1px solid currentColor; border-radius:50%; flex-shrink:0; opacity:0.4; display:flex; align-items:center; justify-content:center; font-size:10px;}
+  .pm-opt.selected .pm-check{opacity:1; background:var(--amber); border-color:var(--amber); color:var(--ink);}
+
+  footer{background:var(--panel); color:var(--paper); padding:70px 0 30px; border-top:1px solid var(--line);}
+  .foot-grid{display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr; gap:40px; padding-bottom:50px; border-bottom:1px solid var(--line);}
+  @media (max-width:820px){ .foot-grid{grid-template-columns:1fr 1fr; row-gap:36px;} }
+  .foot-grid h5{font-family:var(--mono); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; opacity:0.5; margin-bottom:18px; color:var(--teal-soft);}
+  .foot-grid ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; font-size:14px; opacity:0.82;}
+  .foot-grid p{opacity:0.6; font-size:14px; max-width:280px; margin-top:14px;}
+  .foot-bottom{display:flex; justify-content:space-between; padding-top:26px; font-size:12.5px; opacity:0.45; flex-wrap:wrap; gap:10px;}
+
+  .fade-in{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease;}
+  .fade-in.show{opacity:1; transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="#hero" class="logo logo-img-wrap">
+      <img src="images/logo.png" alt="Dream Home Improvement">
+    </a>
+    <nav class="navlinks">
+      <a href="#services">Services</a>
+      <a href="#creds">Why Us</a>
+      <a href="#process">Process</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="tel:7188447037" class="nav-phone nav-phone-desktop">(718) 844-7037</a>
+    <button type="button" class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services">Services</a>
+    <a href="#creds">Why Us</a>
+    <a href="#process">Process</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+    <a href="tel:7188447037" class="nav-phone">(718) 844-7037</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="wrap hero-inner">
+    <div class="eyebrow">New Jersey · New York · Pennsylvania</div>
+    <h1>Your Home,<br><em>Rebuilt or Reimagined.</em></h1>
+    <p class="hero-sub">Dream Home Improvement brings premium craftsmanship to every room — kitchens, bathrooms, basements, and full home transformations, built around your vision.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn btn-amber">Request a Free Estimate →</a>
+      <a href="tel:7188447037" class="btn btn-line">Call Us Today</a>
+    </div>
+    <p class="finance-note">Financing available — ask about flexible payment options for your project.</p>
+    <div class="hero-strip">
+      <div class="stat"><b>Licensed</b><span>&amp; Insured</span></div>
+      <div class="stat"><b>5.0 · 24 Reviews</b><span>Google Rated</span></div>
+      <div class="stat"><b>NJ · NY · PA</b><span>Service Region</span></div>
+      <div class="stat"><b>Gov-Ready</b><span>UEI &amp; CAGE Registered</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="svc-head fade-in">
+      <div>
+        <div class="eyebrow" style="color:var(--teal-soft);">Built Around Your Vision</div>
+        <h2>From first call to final walkthrough.</h2>
+      </div>
+      <p>From a single-room upgrade to a full home transformation — the same team sees it through, start to finish.</p>
+    </div>
+    <div class="svc-grid active" id="remodel">
+      <div class="svc-card"><img class="thumb" src="images/service-kitchen.jpg" alt="Kitchen remodel by Dream Home Improvement"><div class="svc-body"><h4>Kitchen Remodeling</h4><p>Thoughtful layouts, quality finishes, flooring, tile, cabinetry, and detailed installation.</p></div></div>
+      <div class="svc-card"><img class="thumb" src="images/service-bathroom.jpg" alt="Bathroom remodel by Dream Home Improvement"><div class="svc-body"><h4>Bathroom Remodeling</h4><p>A bathroom that feels beautiful and functional — tile, vanities, showers, tubs, and fixtures.</p></div></div>
+      <div class="svc-card"><img class="thumb" src="images/service-basement.jpg" alt="Custom basement wet bar remodel by Dream Home Improvement"><div class="svc-body"><h4>Basement Remodeling</h4><p>Turn unused space into living areas, bathrooms, laundry rooms, and entertainment spaces.</p></div></div>
+      <div class="svc-card"><img class="thumb" src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=700&q=80" alt="Hardwood flooring installation"><div class="svc-body"><h4>Flooring &amp; Tile</h4><p>Professional installation designed for a clean, durable, finished look.</p></div></div>
+      <div class="svc-card"><img class="thumb" src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=700&q=80" alt="Modern entry door"><div class="svc-body"><h4>Doors &amp; Windows</h4><p>Installation and replacement to refresh appearance and performance.</p></div></div>
+      <div class="svc-card"><img class="thumb" src="images/service-theater.jpg" alt="Custom home theater build by Dream Home Improvement"><div class="svc-body"><h4>Total Home &amp; General Construction</h4><p>Coordinating multiple areas — plus decks, outdoor projects, and interior improvements — into one cohesive transformation.</p></div></div>
+    </div>
+
+      </div>
+</section>
+
+<!-- CREDS -->
+<section class="creds" id="creds">
+  <div class="wrap">
+    <div class="eyebrow">Why Homeowners Choose Us</div>
+    <h2 class="fade-in">Held to the same standard, whether it's a small fix or a full renovation.</h2>
+    <div class="creds-grid fade-in">
+      <div class="cred-card"><div class="ico"><span>✓</span></div><h4>Honest Communication</h4><p>Clear updates throughout the project so owners and stakeholders always know what's happening.</p></div>
+      <div class="cred-card"><div class="ico"><span>◆</span></div><h4>Documentation Discipline</h4><p>Structured project records, field photos, and scopes built to withstand audits and project review.</p></div>
+      <div class="cred-card"><div class="ico"><span>⌂</span></div><h4>Respect for Your Property</h4><p>Clean, organized work areas and a professional approach on every job site.</p></div>
+      <div class="cred-card"><div class="ico"><span>✦</span></div><h4>Quality Without Guesswork</h4><p>Practical recommendations built around real goals, real budgets, and real timelines.</p></div>
+    </div>
+    <div class="creds-trust fade-in">
+      <div class="cert-logos">
+        <div class="trust-item">
+          <button type="button" class="trust-open" data-title="OSHA Trained Certified" data-img="images/cert-osha.png" aria-label="View OSHA Trained Certified badge, larger"><img src="images/cert-osha.png" alt="OSHA Trained Certified"></button>
+          <span class="trust-label">OSHA Trained Certified</span>
+        </div>
+        <div class="trust-item">
+          <button type="button" class="trust-open" data-title="Andersen Certified Contractor" data-img="images/cert-andersen.png" aria-label="View Andersen Certified Contractor badge, larger"><img src="images/cert-andersen.png" alt="Andersen Certified Contractor"></button>
+          <span class="trust-label">Andersen Certified Contractor</span>
+        </div>
+        <div class="trust-item">
+          <button type="button" class="trust-open" data-title="EPA Lead-Safe Certified Firm" data-img="images/cert-epa.png" aria-label="View EPA Lead-Safe Certified Firm badge, larger"><img src="images/cert-epa.png" alt="EPA Lead-Safe Certified Firm"></button>
+          <span class="trust-label">EPA Lead-Safe Certified Firm</span>
+        </div>
+      </div>
+      <div class="award-wrap">
+        <div class="trust-item">
+          <button type="button" class="trust-open" data-title="Top 3 Contractor 2025 — Business Rate Award, Jackson Township, New Jersey" data-img="images/award-top3-contractor-2025.jpg" aria-label="View Top 3 Contractor 2025 — Business Rate Award, Jackson Township, New Jersey, larger"><img src="images/award-top3-contractor-2025.jpg" alt="Top 3 Contractor 2025 — Business Rate Award, Jackson Township, New Jersey"></button>
+          <span class="trust-label">Top 3 Contractor 2025</span>
+        </div>
+      </div>
+    </div>
+    <div class="creds-bottom fade-in">
+      <div class="badges">
+        <div class="badge">NJ Certified — SBE · MBE · MWBE</div>
+    </div>    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="eyebrow">Process</div>
+    <h2 class="fade-in">From First Call to Finished Space.</h2>
+    <div class="timeline fade-in">
+      <div class="tl-step"><div class="tl-dot"></div><h4>Respond</h4><p>A first conversation about your remodel — fast, no-pressure intake.</p></div>
+      <div class="tl-step"><div class="tl-dot"></div><h4>Assess</h4><p>On-site evaluation, scope, documentation, and a clear plan.</p></div>
+      <div class="tl-step"><div class="tl-dot"></div><h4>Design</h4><p>Finalize materials, layout, and requirements before any work begins.</p></div>
+      <div class="tl-step"><div class="tl-dot"></div><h4>Build</h4><p>Coordinated trades handle construction and remodeling with attention to detail.</p></div>
+      <div class="tl-step"><div class="tl-dot"></div><h4>Hand Off</h4><p>Step into a space rebuilt or reimagined — and ready to live in.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery">
+  <div class="wrap">
+    <div class="eyebrow">Featured Transformations</div>
+    <h2 class="fade-in">Spaces worth coming home to.</h2>
+    <div class="gal-grid fade-in">
+      <div class="gal-item"><img src="images/gallery-kitchen.jpg" alt="Kitchen transformation by Dream Home Improvement"><div class="cap">Kitchen Transformations</div></div>
+      <div class="gal-item"><img src="images/gallery-bathroom.jpg" alt="Bathroom retreat by Dream Home Improvement"><div class="cap">Bathroom Retreats</div></div>
+      <div class="gal-item"><img src="images/gallery-basement.jpg" alt="Basement wet bar conversion"><div class="cap">Basement Conversions</div></div>
+      <div class="gal-item"><img src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=800&q=80" alt="Flooring and tile"><div class="cap">Flooring &amp; Tile</div></div>
+      <div class="gal-item"><img src="images/gallery-theater.jpg" alt="Custom home theater room"><div class="cap">Rebuilt &amp; Reimagined</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO SECTION -->
+<section class="video-section">
+  <div class="wrap">
+    <div class="eyebrow">See It In Motion</div>
+    <h2 class="fade-in">Walk through the work.</h2>
+    <p class="lead fade-in">A couple of quick walkthroughs from recent projects.</p>
+    <div class="video-grid fade-in">
+      <div class="video-card">
+        <video controls muted preload="none" style="object-position:30% center;" poster="images/video-poster-theater.jpg">
+          <source src="videos/walkthrough-1.mp4" type="video/mp4">
+        </video>
+        <div class="vcap">Home Theater Build</div>
+      </div>
+      <div class="video-card">
+        <video controls muted preload="none" style="object-position:70% center;" poster="images/video-poster-bathroom.jpg">
+          <source src="videos/walkthrough-2.mp4" type="video/mp4">
+        </video>
+        <div class="vcap">Bathroom Remodel</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="eyebrow">Reviews</div>
+    <h2 class="fade-in">Trusted by homeowners across NJ, NY &amp; PA.</h2>
+    <div class="rev-grid fade-in">
+      <div class="rev-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">Luis and his guys were very professional. They showed up when they said they would — their work was meticulous and beyond my expectations. He accommodated all my last-minute changes and I finally have the dream bathroom that I wanted.</p>
+        <div class="who">Google review · 5.0★</div>
+      </div>
+      <div class="rev-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">Luis and his crew were beyond amazing. He offers affordable prices for work that is genuinely top notch, done in a timely manner. Luis is easy to communicate with and is a solid man of his word.</p>
+        <div class="who">Google review · 5.0★</div>
+      </div>
+      <div class="rev-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">We first contacted Luis to replace 3 sliding glass doors — done within one day. We invited him back for our kitchen and half bath renovation; his team was early each day and respectful of our space while we worked from home.</p>
+        <div class="who">Google review · 5.0★</div>
+      </div>
+      <div class="rev-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">I've worked with Luis on numerous occasions, on my personal property and investment properties. None of the contractors I've used compare — everything done in excellence and with integrity.</p>
+        <div class="who">Google review · 5.0★</div>
+      </div>
+      <div class="rev-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">Another beautiful renovation — Luis and his team completely remodeled our master bathroom from top to bottom, on time and professional throughout. Thoroughly satisfied and will return for future projects.</p>
+        <div class="who">Google review · 5.0★</div>
+      </div>
+      <div class="rev-card" style="display:flex; flex-direction:column; justify-content:center; align-items:flex-start;">
+        <div class="stars">★★★★★</div>
+        <p class="quote" style="font-family:var(--serif); font-size:22px; opacity:1;">5.0 average<br>24 Google reviews</p>
+        <a href="https://search.google.com/local/reviews?placeid=ChIJD_J2GlJ7wYkRGHcJNKofA_0" target="_blank" rel="noopener" class="btn btn-line" style="margin-top:16px;">View on Google →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE AREA -->
+<section class="area hexbg">
+  <div class="wrap">
+    <div class="eyebrow" style="color:var(--teal-soft);">Service Region</div>
+    <h2 class="fade-in" style="margin-bottom:14px;">Proudly serving the tri-state area.</h2>
+    <p style="opacity:0.68; max-width:480px; margin-bottom:10px;">Remodeling projects across New Jersey, New York &amp; Pennsylvania — from single-room updates to full home transformations.</p>
+    <div class="area-panel fade-in" style="margin-top:34px;">
+      <div class="region-row">
+        <div class="region"><span>01</span>New Jersey</div>
+        <div class="region"><span>02</span>New York</div>
+        <div class="region"><span>03</span>Pennsylvania</div>
+      </div>
+      <div class="primary-loc">📍 Primary Location: Jackson Township, New Jersey</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap contact-inner">
+    <div class="contact-top">
+      <div class="eyebrow">Contact</div>
+      <h2>Ready to remodel or rebuild?</h2>
+      <p class="contact-lead">Tell us what you're envisioning — we'll follow up to talk through scope, timeline, and next steps.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="info-col">
+        <div class="emergency-callout">
+          <div class="ec-ico">☎</div>
+          <div>
+            <div class="ec-label">Call Us Today</div>
+            <div class="ec-phone">(718) 844-7037</div>
+          </div>
+        </div>
+
+        <div class="info-list">
+          <div class="info-row">
+            <div class="ir-ico">✉</div>
+            <div><div class="ir-lbl">Email</div><div class="ir-val">Dreamgc29@gmail.com</div></div>
+          </div>
+          <div class="info-row">
+            <div class="ir-ico">📍</div>
+            <div><div class="ir-lbl">Service Area</div><div class="ir-val">New Jersey · New York · Pennsylvania</div></div>
+          </div>
+          <div class="info-row">
+            <div class="ir-ico">🕐</div>
+            <div><div class="ir-lbl">Hours</div><div class="ir-val">Mon–Fri, 8:00 AM–7:00 PM</div></div>
+          </div>
+          <div class="info-row">
+            <div class="ir-ico">📷</div>
+            <div><div class="ir-lbl">Instagram</div><div class="ir-val"><a href="https://instagram.com/dream_home_improvement" target="_blank" rel="noopener" style="color:inherit;">@dream_home_improvement</a></div></div>
+          </div>
+          <div class="info-row">
+            <div class="ir-ico">💳</div>
+            <div><div class="ir-lbl">Financing</div><div class="ir-val">Available — ask us about flexible payment options</div></div>
+          </div>
+        </div>
+
+        <div class="info-bottom">
+          <span class="ib-chip">NJ</span><span class="ib-chip">NY</span><span class="ib-chip">PA</span>
+          <span style="font-size:13px; opacity:0.55; margin-left:6px;">Government-ready · UEI &amp; CAGE registered</span>
+        </div>
+      </div>
+
+      <div class="form-col form">
+        <div class="eyebrow">Request a Free Estimate</div>
+
+        <form name="estimate-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="estimateForm">
+          <input type="hidden" name="form-name" value="estimate-request">
+          <p style="position:absolute; left:-9999px;"><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
+
+          <div class="form-field">
+            <label>I'm reaching out about</label>
+            <button type="button" class="picker-field" id="pickerTrigger">
+              <span class="pf-value placeholder" id="pickerValue">Select one...</span>
+              <span class="pf-chevron">▾</span>
+            </button>
+            <input type="hidden" id="pickerHidden" name="reason">
+          </div>
+
+          <div class="form-row">
+            <div class="form-field"><label>Name</label><input type="text" name="name" required placeholder="Your full name"></div>
+            <div class="form-field"><label>Phone</label><input type="tel" name="phone" required placeholder="(___) ___-____"></div>
+          </div>
+          <div class="form-field"><label>Email</label><input type="email" name="email" required placeholder="you@email.com"></div>
+          <div class="form-field"><label>Message</label><textarea rows="3" name="message" placeholder="Tell us what's going on..."></textarea></div>
+
+          <button type="submit" class="btn btn-amber" id="estimateSubmit" style="width:100%; justify-content:center; margin-top:6px;">Submit Request</button>
+          <p class="form-note">By submitting, you agree we may contact you about your request. We do not sell personal information. Typical response: within 1 business day (emergencies: immediate).</p>
+        </form>
+
+        <div class="form-success" id="formSuccess" style="display:none; text-align:center; padding:40px 10px;">
+          <div style="font-size:34px; margin-bottom:14px;">✓</div>
+          <h3 style="font-family:var(--serif); font-size:22px; margin-bottom:10px;">Request received</h3>
+          <p style="opacity:0.75; font-size:14.5px;">Thanks for reaching out — we'll get back to you within 1 business day.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="picker-overlay" id="pickerOverlay">
+  <div class="picker-modal">
+    <button type="button" class="pm-close" id="pmClose">✕</button>
+    <div class="pm-eyebrow">Request a Free Estimate</div>
+    <h3>What can we help with?</h3>
+    <p class="pm-sub">Select the option that fits your project — we'll route it to the right team.</p>
+    <div class="pm-options" id="pmOptions">
+      <div class="pm-opt" data-value="Kitchen or Bathroom Remodel"><span class="pm-opt-label">Kitchen or Bathroom Remodel</span><span class="pm-check">✓</span></div>
+      <div class="pm-opt" data-value="Basement, Flooring, or Doors &amp; Windows"><span class="pm-opt-label">Basement, Flooring, or Doors &amp; Windows</span><span class="pm-check">✓</span></div>
+      <div class="pm-opt" data-value="Whole Home Remodel"><span class="pm-opt-label">Whole Home Remodel</span><span class="pm-check">✓</span></div>
+      <div class="pm-opt" data-value="Not sure — help me figure it out"><span class="pm-opt-label">Not sure — help me figure it out</span><span class="pm-check">✓</span></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="logo logo-img-wrap" style="margin-bottom:14px;">
+          <img src="images/logo.png" alt="Dream Home Improvement">
+        </div>
+        <p>Premium home remodeling across New Jersey, New York &amp; Pennsylvania.</p>
+      </div>
+      <div><h5>Remodeling</h5><ul><li>Kitchens</li><li>Bathrooms</li><li>Basements</li><li>Flooring &amp; Tile</li><li>Doors &amp; Windows</li></ul></div>
+      <div><h5>Contact</h5><ul><li>(718) 844-7037</li><li>Dreamgc29@gmail.com</li><li><a href="https://instagram.com/dream_home_improvement" target="_blank" rel="noopener" style="opacity:0.85;">@dream_home_improvement</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Dream Home Improvement. All rights reserved.</span>
+      <span>Remodeling — NJ · NY · PA</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('show'); });
+  }, {threshold:0.15});
+  document.querySelectorAll('.fade-in').forEach(el=>io.observe(el));
+
+  // Fancy picker modal
+  const pickerTrigger = document.getElementById('pickerTrigger');
+  const pickerOverlay = document.getElementById('pickerOverlay');
+  const pickerValue = document.getElementById('pickerValue');
+  const pickerHidden = document.getElementById('pickerHidden');
+  const pmClose = document.getElementById('pmClose');
+  const pmOptions = document.querySelectorAll('.pm-opt');
+
+  function openPicker(){ pickerOverlay.classList.add('show'); pickerTrigger.classList.add('open'); }
+  function closePicker(){ pickerOverlay.classList.remove('show'); pickerTrigger.classList.remove('open'); }
+
+  pickerTrigger.addEventListener('click', openPicker);
+  pmClose.addEventListener('click', closePicker);
+  pickerOverlay.addEventListener('click', (e)=>{ if(e.target === pickerOverlay) closePicker(); });
+
+  pmOptions.forEach(opt=>{
+    opt.addEventListener('click', ()=>{
+      pmOptions.forEach(o=>o.classList.remove('selected'));
+      opt.classList.add('selected');
+      const val = opt.dataset.value;
+      pickerValue.textContent = val;
+      pickerValue.classList.remove('placeholder');
+      pickerHidden.value = val;
+      setTimeout(closePicker, 220);
+    });
+  });
+
+  (function(){
+    var form = document.getElementById('estimateForm');
+    var success = document.getElementById('formSuccess');
+    if (form) {
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        var submitBtn = document.getElementById('estimateSubmit');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+        var data = new FormData(form);
+        fetch('/', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+          body: new URLSearchParams(data).toString()
+        }).then(function(){
+          form.style.display = 'none';
+          success.style.display = 'block';
+        }).catch(function(){
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit Request';
+          alert("Something went wrong sending your request — please call us at (718) 844-7037 or try again.");
+        });
+      });
+    }
+  })();
+
+  (function(){
+    var burger = document.getElementById('navBurger');
+    var menu = document.getElementById('mobileMenu');
+    function closeMenu(){
+      burger.classList.remove('open');
+      menu.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+    }
+    burger.addEventListener('click', function(){
+      var isOpen = menu.classList.toggle('open');
+      burger.classList.toggle('open', isOpen);
+      burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', closeMenu);
+    });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeMenu(); });
+  })();
+
+  (function(){
+    var overlay = document.getElementById('trustLightbox');
+    var img = document.getElementById('trustLightboxImg');
+    var caption = document.getElementById('trustLightboxCaption');
+    var closeBtn = document.getElementById('trustLightboxClose');
+    document.querySelectorAll('.trust-open').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        img.src = btn.getAttribute('data-img');
+        img.alt = btn.getAttribute('data-title');
+        caption.textContent = btn.getAttribute('data-title');
+        overlay.classList.add('open');
+      });
+    });
+    function closeLightbox(){ overlay.classList.remove('open'); img.src=''; }
+    closeBtn.addEventListener('click', closeLightbox);
+    overlay.addEventListener('click', function(e){ if(e.target === overlay) closeLightbox(); });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLightbox(); });
+  })();
+</script>
+<div class="lightbox-overlay" id="trustLightbox">
+  <button type="button" class="lightbox-close" id="trustLightboxClose" aria-label="Close">&times;</button>
+  <div class="lightbox-box">
+    <img id="trustLightboxImg" src="" alt="">
+    <div class="lightbox-caption" id="trustLightboxCaption"></div>
+  </div>
+</div>
+</body>
+</html>
