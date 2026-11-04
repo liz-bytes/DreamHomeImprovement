@@ -4,6 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dream Home Improvement | Residential & Commercial Remodeling | NJ, NY & PA</title>
+<meta name="description" content="Residential and commercial remodeling in New Jersey, New York and Pennsylvania. Kitchens, bathrooms, basements and full transformations. Licensed and insured. Free estimates.">
+<meta name="theme-color" content="#0F1620">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Dream Home Improvement">
+<meta property="og:title" content="Dream Home Improvement | Residential &amp; Commercial Remodeling">
+<meta property="og:description" content="Premium remodeling in NJ, NY &amp; PA. Kitchens, bathrooms, basements and full transformations. Free estimates.">
+<meta property="og:url" content="https://dream-home-improvement.netlify.app/">
+<meta property="og:image" content="https://dream-home-improvement.netlify.app/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Dream Home Improvement: Your Home, Rebuilt or Reimagined">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dream Home Improvement | Residential &amp; Commercial Remodeling">
+<meta name="twitter:description" content="Premium remodeling in NJ, NY &amp; PA. Free estimates.">
+<meta name="twitter:image" content="https://dream-home-improvement.netlify.app/images/og-image.jpg">
 <style>
   :root{
     --ink:#0F1620;
@@ -24,6 +39,11 @@
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
+  :root{--z:1;}
+  html{zoom:var(--z);}
+  @media (min-width:1600px){ :root{--z:1.2;} }
+  @media (min-width:1920px){ :root{--z:1.4;} }
+  @media (min-width:2400px){ :root{--z:1.8;} }
   body{margin:0; background:var(--ink); color:var(--paper); font-family:var(--sans); font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;}
   a{color:inherit; text-decoration:none;}
   img{max-width:100%; display:block;}
@@ -89,7 +109,7 @@
   @media (max-width:560px){ .nav-phone-desktop{display:none;} }
 
   /* HERO — dynamic mesh + hex */
-  .hero{position:relative; min-height:96vh; display:flex; flex-direction:column; justify-content:center; overflow:hidden; padding:100px 0 60px;
+  .hero{position:relative; min-height:calc(96vh / var(--z)); display:flex; flex-direction:column; justify-content:center; overflow:hidden; padding:100px 0 60px;
     background:
       linear-gradient(rgba(15,22,32,0.72), rgba(15,22,32,0.88)),
       radial-gradient(1000px 640px at 8% -8%, rgba(200,155,60,0.20), transparent 58%),
@@ -110,7 +130,7 @@
                        repeating-linear-gradient(-60deg, rgba(255,255,255,0.028) 0 1px, transparent 1px 52px);
     mask-image: radial-gradient(circle at 70% 40%, black, transparent 70%);
   }
-  .blob{position:absolute; border-radius:50%; filter:blur(60px); opacity:0.55; animation:float 14s ease-in-out infinite;}
+  .blob{position:absolute; border-radius:50%; filter:blur(90px); opacity:0.16; animation:float 14s ease-in-out infinite;}
   .blob1{width:380px; height:380px; background:var(--amber); top:-100px; right:8%; animation-delay:0s;}
   .blob2{width:300px; height:300px; background:var(--teal); bottom:-80px; left:4%; animation-delay:3s;}
   @keyframes float{0%,100%{transform:translateY(0) translateX(0);} 50%{transform:translateY(-24px) translateX(14px);}}
